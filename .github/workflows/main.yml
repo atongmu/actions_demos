@@ -1,0 +1,25 @@
+name: workflows_service
+env:
+    cache-name: note
+on:
+   push:
+        branches: 
+            - main
+        paths-ignore:   # 下列文件的变更不触发部署，可以自行添加
+          - README.md
+          - package.json
+   repository_dispatch:
+        types: [my-event]
+           
+jobs:
+    myEvent:
+      runs-on: ubuntu-latest
+      name: service1 job
+      steps:
+          - uses: actions/checkout@v3
+          - run: | 
+               ls
+               echo 'end'
+          
+
+        
