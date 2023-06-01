@@ -9,17 +9,25 @@ on:
           - README.md
           - package.json
    repository_dispatch:
-        types: [my-event]
+        types: [my-event1,my-event2]
            
 jobs:
-    myEvent:
+    myEvent1:
       runs-on: ubuntu-latest
       name: service1 job
       steps:
           - uses: actions/checkout@v3
           - run: | 
                ls
-               echo 'end'
+               echo 'service1 job end'
+    myEvent2:
+      runs-on: ubuntu-latest
+      name: service2 job
+      steps:
+          - uses: actions/checkout@v3
+          - run: | 
+               ls
+               echo 'service2 job end'
           
 
         
